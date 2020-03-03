@@ -5,11 +5,15 @@ namespace AppBundle\Controller\Admin;
 use AppBundle\Entity\Genus;
 use AppBundle\Form\GenusFormType;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\Security;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
 
+
+// The @Security annotaion locks down all the endpoints that are controlled by this controller and can only be access by a user that has the role of admin
 /**
  * @Route("/admin")
+ * @Security("is_granted('ROLE_MANAGE_GENUS')")
  */
 class GenusAdminController extends Controller
 {
@@ -18,6 +22,7 @@ class GenusAdminController extends Controller
      */
     public function indexAction()
     {
+
         $genuses = $this->getDoctrine()
             ->getRepository('AppBundle:Genus')
             ->findAll();
@@ -43,7 +48,10 @@ class GenusAdminController extends Controller
             $em->persist($genus);
             $em->flush();
 
-            $this->addFlash('success', 'Genus created!');
+            $this->addFlash(
+                'success',
+                sprintf('Genus created! - you (%s) are amazing!', $this->getUser()->getEmail())
+            );
 
             return $this->redirectToRoute('admin_genus_list');
         }

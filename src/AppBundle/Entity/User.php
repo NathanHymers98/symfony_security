@@ -33,6 +33,13 @@ class User implements UserInterface
 
     private $plainPassword;
 
+    // This makes the array property hold an array of roles, but when we save Doctrine will automatically JSON encode that array and store it in a single field in the database.
+    // When we query, it will decode the JSON back to the array. This means that we can store an array inside a single column in the database without having to worry about JSON encode or decode
+    /**
+     * @ORM\Column(type="json_array")
+     */
+    private $roles = [];
+
     public function getUsername() // This is used to show who is logged in when debugging
     {
         return $this->email;
@@ -40,7 +47,12 @@ class User implements UserInterface
 
     public function getRoles()
     {
-        return ['ROLE_USER'];
+        $roles = $this->roles;
+        if (!in_array('ROLE_USER', $roles)) { // if 'ROLE_USER' is not in the $roles array
+            $roles[] = 'ROLE_USER'; // then add it to the array
+        }
+
+        return $roles; // if it is in the array then return the array
     }
 
     public function getPassword()
@@ -82,6 +94,15 @@ class User implements UserInterface
         $this->password = null;
     }
 
+    public function setRoles($roles)
+    {
+        $this->roles = $roles;
+    }
+
+    public function getEmail()
+    {
+        return $this->email;
+    }
 
 
 }

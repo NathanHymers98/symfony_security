@@ -5,6 +5,10 @@ security:
     encoders:
         AppBundle\Entity\User: bcrypt
 
+        # if anybody has ROLE_ADMIN, automatically give them ROLE_MANAGE_GENUS
+    role_hierarchy:
+        ROLE_ADMIN: [ROLE_MANAGE_GENUS, ROLE_ALLOWED_TO_SWITCH]
+
     # http://symfony.com/doc/current/book/security.html#where-do-users-come-from-user-providers
     providers:
         our_users:
@@ -25,6 +29,8 @@ security:
             # By adding this, when the user goes to the URL /logout, Symfony will handle it for us
             logout:
                 path: /logout
+
+            switch_user: ~
             # activate different ways to authenticate
 
             # http_basic: ~
@@ -32,3 +38,7 @@ security:
 
             # form_login: ~
             # http://symfony.com/doc/current/cookbook/security/form_login_setup.html
+
+        # if any one goes to a URL with "/admin" the system will kick them out unless they have ROLE_USER
+    access_control:
+        #- { path: ^/admin, roles: ROLE_USER }
