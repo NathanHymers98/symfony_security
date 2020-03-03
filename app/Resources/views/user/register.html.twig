@@ -1,0 +1,24 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <div class="container">
+        <div class="row">
+            <div class="col-xs-12">
+                <h1>Register!</h1>
+
+                {{ form_start(form) }}
+                    {{ form_row(form.email) }}
+                {# Since we are using the RepeatedType, the plainPassword feild is actually two fields, so we add both of them by targeting the first field and the second field
+                 Passing them a variables array to each of them to change their labels so that on the form they show proper labels#}
+                    {{ form_row(form.plainPassword.first, {
+                        'label': 'Password'
+                    }) }}
+                    {{ form_row(form.plainPassword.second, {
+                        'label': 'Repeat Password'
+                    }) }}
+                    <button type="submit" class="btn btn-primary" formnovalidate>Register</button> {# "formnovalidate" disables HTML 5 validation#}
+                {{ form_end(form) }}
+            </div>
+        </div>
+    </div>
+{% endblock %}

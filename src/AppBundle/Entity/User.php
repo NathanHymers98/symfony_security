@@ -3,11 +3,15 @@
 
 namespace AppBundle\Entity;
 
+use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
 use Symfony\Component\Security\Core\Role;
 use Symfony\Component\Security\Core\User\UserInterface;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Validator\Constraints as Assert;
 
+// The @UniqueEntity means that the properties, or columns/fields in the database must be unique. Here I am setting the email property to be unique so that a user cannot register when that email already exists in the database.
 /**
+ * @UniqueEntity(fields={"email"}, message="Looks like you already have an account")
  * @ORM\Entity
  * @ORM\Table(name="user")
  */
@@ -21,7 +25,10 @@ class User implements UserInterface
      */
     private $id;
 
+    // Adding validation to the email property by adding annotations that say that it cannot be blank and that it must be a proper email format
     /**
+     * @Assert\NotBlank()
+     * @Assert\Email()
      * @ORM\Column(type="string", unique=true)
      */
     private $email;
@@ -31,6 +38,11 @@ class User implements UserInterface
      */
     private $password;
 
+    // Giving this property a groups annotation which is set to Registration because I only want this field to be validated on the Register form.
+    // This is ok because this field does not actually get saved to the database. This change just makes the site more convenient for the user
+    /**
+     * @Assert\NotBlank(groups={"Registration"})
+     */
     private $plainPassword;
 
     // This makes the array property hold an array of roles, but when we save Doctrine will automatically JSON encode that array and store it in a single field in the database.

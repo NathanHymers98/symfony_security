@@ -2,12 +2,12 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="3b352d52-971d-444c-9dfe-da2e6fd740b5" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/Resources/views/user/register.html.twig" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/AppBundle/Controller/UserController.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/AppBundle/Form/UserRegistrationForm.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Resources/views/main/homepage.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/app/Resources/views/main/homepage.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/config/security.yml" beforeDir="false" afterPath="$PROJECT_DIR$/app/config/security.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/AppBundle/Controller/Admin/GenusAdminController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/AppBundle/Controller/Admin/GenusAdminController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/AppBundle/DataFixtures/ORM/fixtures.yml" beforeDir="false" afterPath="$PROJECT_DIR$/src/AppBundle/DataFixtures/ORM/fixtures.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Resources/views/security/login.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/app/Resources/views/security/login.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/AppBundle/Entity/Genus.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/AppBundle/Entity/Genus.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/AppBundle/Entity/User.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/AppBundle/Entity/User.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -98,7 +98,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1583222845619</updated>
-      <workItem from="1583222848948" duration="11829000" />
+      <workItem from="1583222848948" duration="14407000" />
     </task>
     <servers />
   </component>
@@ -114,10 +114,10 @@
       <screen x="0" y="0" width="2560" height="1440" />
     </state>
     <state x="1042" y="330" key="#com.jetbrains.php.refactoring.extractMethod.PhpExtractMethodDialog#method0/2560.0.3840.2160/0.0.2560.1440@0.0.2560.1440" timestamp="1583234670005" />
-    <state x="956" y="543" key="NewPhpClassDialog" timestamp="1583234184826">
+    <state x="956" y="543" key="NewPhpClassDialog" timestamp="1583238092344">
       <screen x="0" y="0" width="2560" height="1440" />
     </state>
-    <state x="956" y="543" key="NewPhpClassDialog/2560.0.3840.2160/0.0.2560.1440@0.0.2560.1440" timestamp="1583234184826" />
+    <state x="956" y="543" key="NewPhpClassDialog/2560.0.3840.2160/0.0.2560.1440@0.0.2560.1440" timestamp="1583238092344" />
     <state x="957" y="552" key="com.intellij.ide.util.TipDialog" timestamp="1583222849483">
       <screen x="0" y="0" width="2560" height="1440" />
     </state>
